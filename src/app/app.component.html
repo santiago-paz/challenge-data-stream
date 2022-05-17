@@ -1,0 +1,13 @@
+<div class="flex">
+  <header color="primary">
+    <h1>Hacker News Articles</h1>
+    <mat-form-field color="secondary">
+      <input #searchInput matInput placeholder="Search for articles">
+    </mat-form-field>
+  </header>
+  <div class="cards-container">
+    <mat-spinner *ngIf="spinner"></mat-spinner>
+    <app-news-card *ngFor="let news of allNews | async | searchFilter: searchInput.value" [news]="news">
+    </app-news-card>
+  </div>
+</div>
